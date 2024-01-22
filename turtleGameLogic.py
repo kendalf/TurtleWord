@@ -49,7 +49,10 @@ def start_game(wlen = 5, max_guesses = 6, difficulty = 5):
               if guess[i] == word[i]:
                 color = "bold green"
               elif guess[i] in word:
-                color = "bold yellow"
+                if guess.count(guess[i]) > word.count(guess[i]):
+                  color = "bold red"
+                else:
+                  color = "bold yellow"
               else:
                 color = "bold red"
               display += "[" + color + "]" + guess[i] + "[/" + color + "] "
